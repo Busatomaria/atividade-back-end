@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora simples</title>
+</head>
+<body>
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        input button{
+            padding: 10px;
+            margin: 10px;
+            font-size: 16px;
+        }
+        #resultado{
+            font-weight: bold;
+        }
+    </style>
+    <h1>Calculadora simples</h1>
+
+    <label for="num1">Número 1</label>
+
+    <input type="number" id="num1" placeholder="Digite o primeiro">
+
+    <label for="num2">Número 2</label>
+
+    <input type="number" id="num2" placeholder="Digite o segundo número">
+
+    <br>
+
+    <label for="operacao">Operação:</label>
+
+    <select id="operacao">
+
+        <option value="soma">Soma</option>
+
+        <option value="subtracao">Subtração</option>
+
+        <option value="multiplicacao">Multiplicação</option>
+
+        <option value="divisao">Divisão</option>
+
+    </select>
+
+    <br>
+
+    <button onclick="calcular()">Calcular:</button>
+
+    <h2>Resultado: <span id="resultado"</span></h2>
+    
+    <script>
+        function calcular(){
+            var num1 = parseFloat(document.getElementById('num1').value);
+            var num2 = parseFloat(document.getElementById('num2').value);
+            var operacao = document.getElementById('operacao').value;
+            var resultado;
+            
+            if(operacao == 'soma'){
+                resultado = soma(num1, num2);
+            }else if(operacao == 'subtracao') {
+                resultado = subtracao(num1, num2);
+            }else if(operacao == 'multiplicacao'){
+                resultado = multiplicacao(num1, num2);
+            }else if(operacao == 'divisao'){
+                resultado = divisao(num1, num2);
+            }
+            
+            document.getElementById('resultado').textContent = resultado;
+           
+        }
+
+        function soma(a,b){
+            return a + b;
+        }
+
+        function subtracao(a,b){
+            return a - b;
+        }
+
+        function multiplicacao(a,b){
+            return a * b;
+        }
+
+        function divisao(a,b){
+            if(b === 0){
+                return"Erro: Divisão por zero!";
+            }
+            return a / b;
+        }
+            
+    </script>
+</body>
+</html>
