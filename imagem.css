@@ -1,0 +1,30 @@
+/* Estilos gerais */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #0e02ff;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    padding: 20px;
+}
+
+h1 {
+    color: #333;
+}
+
+/* Estilo para a imagem */
+.imagem {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+/* Efeito ao passar o mouse sobre a imagem */
+.imagem:hover {
+    transform: scale(1.1);
+}
