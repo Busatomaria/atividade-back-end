@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QUIZZ DE HTML</HTML></title>
+    <style>
+        body {
+            font-family: Arial,sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+        .quiz-conteiner{
+            max-width: 500px
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #e93333;
+            border-radius: 20px;
+            box-shandow: 2px 2px 10px rgba(188,180,180,0.1);
+        }
+        .question {
+font-size: 18px;
+margin-bottom: 10px;
+}
+.options label {
+display: block;
+margin: 5px 0;
+}
+button {
+margin-top: 10px;
+padding: 10px;
+font-size: 16px;
+cursor: pointer;
+}
+#result {
+margin-top: 15px;
+font-weight: bold;
+}
+</style>
+</head>
+<body>
+<div class="quiz-container">
+<h2>Quiz HTML</h2>
+<form id="quiz-form">
+    <!-- Pergunta 1 -->
+    <div class="question">1. Qual destes profissionais pode prescrever medicamentos em alguns casos?</div>
+    <div class="options">
+    <label><input type="radio" name="q1" value="fisioterapeuta">a)fisioterapeuta;</label>
+    
+    <label><input type="radio" name="q1" value="farmacêutica"> b)farmacêutica;</label>
+    
+    <label><input type="radio" name="q1" value="nutricionista"> c)nutricionista;</label>
+    
+    </div>
+    <!-- Pergunta 2 -->
+    <div class="question">2. Qual a principal função de uma escola na sociedade?</div>
+    
+    <div class="options">
+    <label><input type="radio" name="q2" value="Ensinar apenas conteúdos acadêmico."> a)Ensinar apenas conteúdos acadêmico.
+    
+    </label>
+    
+    <label><input type="radio" name="q2" value="Preparar os alunos somente para o mercado de trabalho.">b)Preparar os alunos somente para o mercado de trabalho.
+    
+    </label>
+    
+    <label><input type="radio" name="q2" value="Promover desenvolvimento intelectual e social para os alunos e principalmente ensinamentos acadêmicos.">c)Promover desenvolvimento intelectual e social para os alunos e principalmente ensinamentos acadêmicos.
+    
+    </label>
+    </div>
+    <!-- Pergunta 3 -->
+    <div class="question">3.O que pode ajudar a manter boas relações sociais?</div>
+    <div class="options">
+    
+    <label><input type="radio" name="q3" value="Escutar atentamente e respeitar opiniões."> a)Escutar atentamente e respeitar opiniões;  </label>
+    
+    <label><input type="radio" name="q3" value="Falar sobre si mesmas em todas as conversas e não ouvir o próximo"> b)Falar sobre si mesmas em todas as conversas e não ouvir o próximo; </label>
+    
+    <label><input type="radio" name="q3" value=" Evitar conversar com qualquer pessoa"> c)Evitar conversar com qualquer pessoa;
+
+    
+    </label>
+</div>
+<!-- Pergunta 4 -->
+
+<div class="question">4. Qual tecido mais é recomendado em dias de calor?</div>
+<div class="options">
+
+<label><input type="radio" name="q4" value="Lã"> a)Lã;</label>
+
+<label><input type="radio" name="q4" value="Veludo"> b)Veludo;</label>
+
+<label><input type="radio" name="q4" value="Algodão"> c)Algodão;</label>
+</div>
+<!-- Pergunta 5 -->
+<div class="question">5.O que é essencial par um bom vendedor? </div>
+<div class="options">
+<label><input type="radio" name="q5" value="Ser gentil, educado e entender a necessidade do cliente.">a) Ser gentil, educado e entender a necessidade do cliente</label>
+
+<label><input type="radio" name="q5" value="Falar rapidamente sem ouvir o cliente">b)Falar rapidamente sem ouvir o cliente;</label>
+
+<label><input type="radio" name="q5" value="Ignorar duvidas e focar somente no fechamento da venda">c) Ignorar duvidas e focar somente no fechamento da venda;</label>
+
+</div>
+<button type="button"
+
+onclick="verificarRespostas()">Enviar</button>
+</form>
+<p id="result"></p>
+</div>
+
+<script>
+function verificarRespostas() {
+let respostasCorretas = {
+q1: "farmacêutica",
+q2: "Promover desenvolvimento intelectual e social para os alunos e principalmente ensinamentos acadêmicos.",
+q3: "Escutar atentamente e respeitar opiniões.",
+q4: "Algodão",
+q5: "Ser gentil, educado e entender a necessidade do cliente.",
+}
+let pontuacao = 0;
+// Verifica respostas
+let form = document.getElementById("quiz-form");
+let resposta1 = form.q1.value;
+let resposta2 = form.q2.value;
+let resposta3 = form.q3.value;
+let resposta4 = form.q4.value;
+let resposta5 = form.q5.value;
+if (resposta1 === respostasCorretas.q1) pontuacao++;
+if (resposta2 === respostasCorretas.q2) pontuacao++;
+if (resposta3 === respostasCorretas.q3) pontuacao++;
+if (resposta4 === respostasCorretas.q4) pontuacao++;
+if (resposta5 === respostasCorretas.q5) pontuacao++;
+// Mostra resultado
+document.getElementById("result").innerText = `Você acertou
+
+${pontuacao} de 5 perguntas!`;
+}
+
+</script>
+    
+
+<body>
+    
+</body>
+</html>
