@@ -1,0 +1,57 @@
+body{
+    color: white; /* cor do texto */
+    background-color: rgb(160, 125, 131); /* cor de fundo da página */
+    font-family: Arial, Helvetica, sans-serif; /* tipo de fonte */
+    }
+    
+    ul{
+    display: flex;
+    justify-content: space-between; /* alinha os itens na horizontal */
+    list-style-type: none; /* remove os marcadores de lista */
+    align-items: center; /* alinha os itens verticalmente */
+    padding: 16px; /* adiciona espaçamento interno */
+    }
+    
+    a{
+    color: white; /* cor do texto dos links */
+    text-decoration: none; /* remove o sublinhado dos links */
+    }
+    
+    header img{
+    width: 150px; /* largura da imagem */
+    height: 150px; /* altura da imagem */
+    border-radius: 50%; /* borda arredondada para criar um círculo */
+    border: 5px solid rgb(161, 6, 104); /* borda branca de 5px */
+    }
+    
+    .center{
+    text-align: center; /* centraliza o texto */
+    }
+    
+    h1{
+    color: rgb(241, 177, 222); /* cor do texto */
+    }
+    
+    footer img{
+    width: 40px;
+    height: 40px;
+    }
+    
+    footer{
+    display: flex; /* exibe o rodapé como um flex container */
+    justify-content: center; /* centraliza o conteúdo do rodapé */
+    }
+    
+    footer a{
+    margin: 20px; /* adiciona espaçamento entre os links */
+    text-align: center; /* centraliza o texto dos links */
+    }
+    
+    .container{
+    padding: 0px 50px; /* adiciona espaçamento interno de 20% nas laterais */
+    }
+    
+    nav a:hover{
+    color: rgb(187, 20, 137); /* cor do texto ao passar o mouse */
+    }
+    
