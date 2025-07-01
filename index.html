@@ -1,57 +1,100 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Meu primeiro site</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Eventos - Colégio João XXIII</title>
+  <link rel="stylesheet" href="estilo.css" />
 </head>
 <body>
-<div class="container">
-<nav>
-<ul>
-<li><a href="index.html">Sobre mim</a></li>
-<li><a href="projeto.html">Projetos</a></li>
-<li><a href="contato.html">Contato</a></li>
-</ul>
-</nav>
-<header>
-<div class="center">
-<img src="/home/escola/Área de Trabalho/maria luisa/meus projetos/meu site/imagens/71FMw+WEm8L._AC_UF1000,1000_QL80_.jpg">
-</div>
-<h1>maria Luisa Busato</h1>
-<h2>Atendente de farmacia e estudante</h2>
-</header>
-<main>
-<section>
-<h3>Sobre mim</h3>
-<p>Sou estudante do curso de sistemas e adoro trabalhar na farmacia e aprender cada dia mais...</p>
-</section>
-<section>
-<h3>Cursos</h3>
-<p>curso de desenvolvimento de sistemas.</p>
-</section>
-<section>
-<h3>Formação</h3>
-<p>Concluindo ensino medio.</p>
-</section>
-</main>
-<footer>
-<a href="/home/escola/Área de Trabalho/maria luisa/meus projetos/meu site/imagens/71FMw+WEm8L._AC_UF1000,1000_QL80_.jpg" target="_blank" rel="noopener noreferrer">
-<img src="imagens/gmail.png" alt="Gmail" width="30" height="30">
-<p>gmail</p>
-</a>
-<a href="imagens/71FMw+WEm8L._AC_UF1000,1000_QL80_.jpg" target="_blank" rel="noopener noreferrer">
-<img src="" alt="GitHub" width="30" height="30">
-<p>Facebook</p>
-</a>
-<a href="https://www.instagram.com/roneide_fatima?igsh=MTZha1G6a3lranIZQ%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer">
-<img src="imagens/71FMw+WEm8L._AC_UF1000,1000_QL80_.jpg" alt="GitHub" width="30" height="30">
-<p>Instagram</p>
-</a>
-</footer>
-</div>
+  <header>
+    <img src="logo1.jpg" alt="Logo Colégio João XXIII" class="logo" />
+    <h1>📅 Eventos do Colégio João XXIII - Clevelândia-PR</h1>
+  </header>
+
+  <!-- Login -->
+  <section id="login-section">
+    <h2>🔒 Login do Professor</h2>
+    <input type="text" id="usuario" placeholder="Usuário" />
+    <input type="password" id="senha" placeholder="Senha" />
+    <button onclick="fazerLogin()">Entrar</button>
+    <p id="erro-login" class="erro"></p>
+  </section>
+
+  <!-- Formulário novo evento -->
+  <section id="novo-evento" style="display:none;">
+    <h2>➕ Adicionar Novo Evento</h2>
+    <input type="text" id="titulo-evento" placeholder="Título do Evento" />
+    <input type="date" id="data-evento" />
+    <select id="turma-evento">
+      <option value="6ano">6º Ano</option>
+      <option value="7ano">7º Ano</option>
+      <option value="8ano">8º Ano</option>
+      <option value="9ano">9º Ano</option>
+      <option value="1medio">1º Ano Médio</option>
+      <option value="2medio">2º Ano Médio</option>
+      <option value="3medio">3º Ano Médio</option>
+    </select>
+    <textarea id="descricao-evento" placeholder="Descrição"></textarea>
+    <label for="imagem-evento">Imagem do Evento:</label>
+    <input type="file" id="imagem-evento" accept="image/*" />
+    <button onclick="adicionarEvento()">Adicionar</button>
+  </section>
+
+  <main>
+    <!-- Filtros -->
+    <section class="filtros">
+      <button onclick="filtrarEventos('todos')">Todos</button>
+      <button onclick="filtrarEventos('6ano')">6º Ano</button>
+      <button onclick="filtrarEventos('7ano')">7º Ano</button>
+      <button onclick="filtrarEventos('8ano')">8º Ano</button>
+      <button onclick="filtrarEventos('9ano')">9º Ano</button>
+      <button onclick="filtrarEventos('1medio')">1º Médio</button>
+      <button onclick="filtrarEventos('2medio')">2º Médio</button>
+      <button onclick="filtrarEventos('3medio')">3º Médio</button>
+    </section>
+
+    <!-- Lista eventos -->
+    <section class="event-list" id="lista-eventos">
+      <!-- Eventos fixos serão carregados por JS -->
+    </section>
+
+    <!-- Galeria -->
+    <h2 class="galeria-titulo">🖼️ Galeria de Fotos</h2>
+    <section class="galeria" id="galeria-fotos">
+      <!-- Fotos carregadas via JS -->
+    </section>
+  </main>
+
+  <!-- Modal do evento -->
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="fecharModal()">&times;</span>
+      <h2 id="modal-title"></h2>
+      <img id="modal-img" style="max-width: 100%; margin: 10px 0; border-radius: 8px;" />
+      <p id="modal-desc"></p>
+      <p><strong>Data:</strong> <span id="modal-data"></span></p>
+      <p><strong>Turma:</strong> <span id="modal-turma"></span></p>
+    </div>
+  </div>
+
+  <!-- Modal de imagem ampliada -->
+  <div id="imgModal" class="modal">
+    <span class="close" onclick="fecharImagem()">&times;</span>
+    <img id="imgExpandida" class="img-modal-content" />
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Colégio João XXIII. Todos os direitos reservados.</p>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
+
+
+
+
+
 
 
